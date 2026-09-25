@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="tg">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Murg Kabob — воридшавӣ ба Admin Panel"
+    >
+
+    <meta
+        name="theme-color"
+        content="#111111"
+    >
+
+    <title>
+        Murg Kabob — Admin Login
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="login.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     LOGIN PAGE
+========================================================= -->
+
+<main class="login-page">
+
+
+    <!-- =====================================================
+         DECORATIONS
+    ===================================================== -->
+
+    <div class="login-decoration decoration-one"></div>
+
+    <div class="login-decoration decoration-two"></div>
+
+    <div class="login-decoration decoration-three"></div>
+
+
+    <!-- =====================================================
+         LOGIN CONTAINER
+    ===================================================== -->
+
+    <section class="login-container">
+
+
+        <!-- =================================================
+             LEFT SIDE
+        ================================================= -->
+
+        <div class="login-brand-side">
+
+
+            <!-- LOGO -->
+
+            <a
+                href="index.html"
+                class="login-logo"
+                aria-label="Murg Kabob"
+            >
+
+                <div class="login-logo-mark">
+                    МК
+                </div>
+
+
+                <div class="login-logo-text">
+
+                    <strong>
+                        MURG KABOB
+                    </strong>
+
+                    <span>
+                        FAST FOOD
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- BRAND CONTENT -->
+
+            <div class="brand-content">
+
+
+                <span class="brand-badge">
+                    🔐 ADMIN PANEL
+                </span>
+
+
+                <h1>
+                    Идоракунии
+                    <span>
+                        Murg Kabob
+                    </span>
+                </h1>
+
+
+                <p>
+                    Фармоишҳо, меню, ҳолати фармоиш
+                    ва ҳисоботи фурӯшро аз як ҷо
+                    идора кунед.
+                </p>
+
+
+                <!-- FEATURES -->
+
+                <div class="brand-features">
+
+
+                    <div class="brand-feature">
+
+                        <div class="brand-feature-icon">
+                            📦
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Фармоишҳо
+                            </strong>
+
+                            <span>
+                                Идоракунии фармоишҳои муштариён
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="brand-feature">
+
+                        <div class="brand-feature-icon">
+                            🍔
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Меню
+                            </strong>
+
+                            <span>
+                                Илова ва таҳрири маҳсулот
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="brand-feature">
+
+                        <div class="brand-feature-icon">
+                            📊
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Ҳисобот
+                            </strong>
+
+                            <span>
+                                Даромад ва натиҷаи фурӯш
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- BRAND FOOTER -->
+
+            <div class="brand-footer">
+
+                <span>
+                    Demo System
+                </span>
+
+                <span>
+                    •
+                </span>
+
+                <span>
+                    Murg Kabob
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             RIGHT SIDE
+        ================================================= -->
+
+        <div class="login-form-side">
+
+
+            <div class="login-form-wrapper">
+
+
+                <!-- MOBILE LOGO -->
+
+                <a
+                    href="index.html"
+                    class="mobile-login-logo"
+                >
+
+                    <div class="login-logo-mark">
+                        МК
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            MURG KABOB
+                        </strong>
+
+                        <span>
+                            ADMIN PANEL
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <!-- FORM HEADER -->
+
+                <div class="login-form-header">
+
+
+                    <div class="login-icon">
+                        🔐
+                    </div>
+
+
+                    <span class="login-small-title">
+                        ADMIN PANEL
+                    </span>
+
+
+                    <h2>
+                        Хуш омадед!
+                    </h2>
+
+
+                    <p>
+                        Барои ворид шудан ба панели
+                        идоракунӣ логин ва паролро
+                        ворид кунед.
+                    </p>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     LOGIN FORM
+                ================================================= -->
+
+                <form
+                    class="login-form"
+                    id="loginForm"
+                    novalidate
+                >
+
+
+                    <!-- USERNAME -->
+
+                    <div class="form-group">
+
+                        <label for="username">
+
+                            Логин
+
+                        </label>
+
+
+                        <div
+                            class="input-wrapper"
+                            id="usernameWrapper"
+                        >
+
+                            <span class="input-icon">
+                                👤
+                            </span>
+
+
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                placeholder="Логинро ворид кунед"
+                                autocomplete="username"
+                                required
+                            >
+
+
+                            <span
+                                class="input-status"
+                                id="usernameStatus"
+                            ></span>
+
+                        </div>
+
+
+                        <small
+                            class="field-error"
+                            id="usernameError"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <div class="label-row">
+
+                            <label for="password">
+                                Парол
+                            </label>
+
+                            <span class="secure-label">
+                                🔒 Муҳофизатшуда
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="input-wrapper"
+                            id="passwordWrapper"
+                        >
+
+                            <span class="input-icon">
+                                🔑
+                            </span>
+
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Паролро ворид кунед"
+                                autocomplete="current-password"
+                                required
+                            >
+
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="passwordToggle"
+                                aria-label="Нишон додани парол"
+                                aria-pressed="false"
+                            >
+                                👁️
+                            </button>
+
+                        </div>
+
+
+                        <small
+                            class="field-error"
+                            id="passwordError"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- OPTIONS -->
+
+                    <div class="login-options">
+
+
+                        <label class="remember-option">
+
+                            <input
+                                type="checkbox"
+                                id="rememberMe"
+                            >
+
+                            <span class="custom-checkbox">
+                                ✓
+                            </span>
+
+                            <span>
+                                Маро дар хотир нигоҳ дор
+                            </span>
+
+                        </label>
+
+
+                        <span class="demo-label">
+                            DEMO
+                        </span>
+
+
+                    </div>
+
+
+                    <!-- GLOBAL ERROR -->
+
+                    <div
+                        class="login-message error-message"
+                        id="loginError"
+                        role="alert"
+                        aria-live="polite"
+                    >
+
+                        <span>
+                            ⚠️
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Воридшавӣ нашуд
+                            </strong>
+
+                            <p id="loginErrorText">
+                                Логин ё парол нодуруст аст.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SUCCESS -->
+
+                    <div
+                        class="login-message success-message"
+                        id="loginSuccess"
+                        role="status"
+                        aria-live="polite"
+                    >
+
+                        <span>
+                            ✅
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Воридшавӣ муваффақ!
+                            </strong>
+
+                            <p>
+                                Admin Panel кушода мешавад...
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SUBMIT -->
+
+                    <button
+                        type="submit"
+                        class="login-button"
+                        id="loginButton"
+                    >
+
+                        <span
+                            class="login-button-text"
+                            id="loginButtonText"
+                        >
+                            Ворид шудан
+                        </span>
+
+                        <span class="login-button-arrow">
+                            →
+                        </span>
+
+                        <span
+                            class="login-loader"
+                            id="loginLoader"
+                        ></span>
+
+                    </button>
+
+
+                </form>
+
+
+                <!-- =================================================
+                     DEMO INFORMATION
+                ================================================= -->
+
+                <div class="demo-login-card">
+
+
+                    <div class="demo-login-header">
+
+                        <span>
+                            💡
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Маълумоти Demo
+                            </strong>
+
+                            <p>
+                                Барои санҷиши Admin Panel
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="demo-credentials">
+
+
+                        <div class="credential-item">
+
+                            <span>
+                                Логин
+                            </span>
+
+                            <strong>
+                                admin
+                            </strong>
+
+                            <button
+                                type="button"
+                                class="copy-button"
+                                data-copy="admin"
+                                aria-label="Нусхабардории логин"
+                            >
+                                📋
+                            </button>
+
+                        </div>
+
+
+                        <div class="credential-item">
+
+                            <span>
+                                Парол
+                            </span>
+
+                            <strong>
+                                2026
+                            </strong>
+
+                            <button
+                                type="button"
+                                class="copy-button"
+                                data-copy="2026"
+                                aria-label="Нусхабардории парол"
+                            >
+                                📋
+                            </button>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="demo-fill-button"
+                        id="fillDemoButton"
+                    >
+                        ⚡ Demo-ро автоматӣ пур кардан
+                    </button>
+
+
+                </div>
+
+
+                <!-- BACK TO WEBSITE -->
+
+                <a
+                    href="index.html"
+                    class="back-site-link"
+                >
+                    ← Ба сайти Murg Kabob баргаштан
+                </a>
+
+
+                <!-- SECURITY NOTE -->
+
+                <div class="security-note">
+
+                    <span>
+                        🛡️
+                    </span>
+
+                    <p>
+                        Ин Login барои версияи Demo мебошад.
+                        Дар версияи воқеӣ авторизатсия
+                        тавассути сервер анҷом дода мешавад.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<!-- =========================================================
+     TOAST
+========================================================= -->
+
+<div
+    class="login-toast"
+    id="loginToast"
+    role="status"
+    aria-live="polite"
+>
+
+    <div class="login-toast-icon">
+        ✅
+    </div>
+
+    <div>
+
+        <strong id="toastTitle">
+            Нусхабардорӣ шуд
+        </strong>
+
+        <p id="toastText">
+            Маълумот нусхабардорӣ шуд.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     NOSCRIPT
+========================================================= -->
+
+<noscript>
+
+    <div class="noscript-message">
+
+        Барои ворид шудан JavaScript-ро фаъол кунед.
+
+    </div>
+
+</noscript>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script src="login.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="tg">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Murg Kabob — Admin Panel"
+    >
+
+    <meta
+        name="theme-color"
+        content="#111111"
+    >
+
+    <title>
+        Murg Kabob — Admin Panel
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     SIDEBAR OVERLAY
+========================================================= -->
+
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+></div>
+
+
+<!-- =========================================================
+     SIDEBAR
+========================================================= -->
+
+<aside
+    class="sidebar"
+    id="sidebar"
+>
+
+
+    <!-- SIDEBAR HEADER -->
+
+    <div class="sidebar-header">
+
+
+        <a
+            href="index.html"
+            class="sidebar-logo"
+        >
+
+            <div class="sidebar-logo-mark">
+                МК
+            </div>
+
+            <div class="sidebar-logo-text">
+
+                <strong>
+                    MURG KABOB
+                </strong>
+
+                <span>
+                    ADMIN PANEL
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <button
+            type="button"
+            class="sidebar-close"
+            id="sidebarClose"
+            aria-label="Пӯшидани меню"
+        >
+            ×
+        </button>
+
+
+    </div>
+
+
+    <!-- RESTAURANT STATUS -->
+
+    <div class="restaurant-status">
+
+        <div class="restaurant-status-icon">
+            🍔
+        </div>
+
+        <div>
+
+            <strong>
+                Murg Kabob
+            </strong>
+
+            <span>
+                <i></i>
+                Фаъол
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="sidebar-nav">
+
+
+        <span class="sidebar-nav-title">
+            ИДОРАКУНӢ
+        </span>
+
+
+        <!-- DASHBOARD -->
+
+        <button
+            type="button"
+            class="nav-item active"
+            data-section="dashboard"
+        >
+
+            <span class="nav-icon">
+                🏠
+            </span>
+
+            <span class="nav-text">
+                Dashboard
+            </span>
+
+        </button>
+
+
+        <!-- ORDERS -->
+
+        <button
+            type="button"
+            class="nav-item"
+            data-section="orders"
+        >
+
+            <span class="nav-icon">
+                📦
+            </span>
+
+            <span class="nav-text">
+                Фармоишҳо
+            </span>
+
+            <span
+                class="nav-badge"
+                id="sidebarOrderCount"
+            >
+                0
+            </span>
+
+        </button>
+
+
+        <!-- NEW ORDERS -->
+
+        <button
+            type="button"
+            class="nav-item"
+            data-section="new-orders"
+        >
+
+            <span class="nav-icon">
+                🔔
+            </span>
+
+            <span class="nav-text">
+                Фармоишҳои нав
+            </span>
+
+            <span
+                class="nav-badge nav-badge-warning"
+                id="sidebarNewCount"
+            >
+                0
+            </span>
+
+        </button>
+
+
+        <!-- MENU -->
+
+        <button
+            type="button"
+            class="nav-item"
+            data-section="menu"
+        >
+
+            <span class="nav-icon">
+                🍔
+            </span>
+
+            <span class="nav-text">
+                Меню
+            </span>
+
+            <span
+                class="nav-badge"
+                id="sidebarMenuCount"
+            >
+                0
+            </span>
+
+        </button>
+
+
+        <!-- REPORTS -->
+
+        <button
+            type="button"
+            class="nav-item"
+            data-section="reports"
+        >
+
+            <span class="nav-icon">
+                📊
+            </span>
+
+            <span class="nav-text">
+                Ҳисобот
+            </span>
+
+        </button>
+
+
+    </nav>
+
+
+    <!-- SIDEBAR BOTTOM -->
+
+    <div class="sidebar-bottom">
+
+
+        <div class="sidebar-help-card">
+
+            <div class="sidebar-help-icon">
+                💡
+            </div>
+
+            <div>
+
+                <strong>
+                    Demo Admin
+                </strong>
+
+                <p>
+                    Идоракунии фармоишҳо,
+                    меню ва ҳисобот.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- BACK TO WEBSITE -->
+
+        <a
+            href="index.html"
+            class="back-to-site"
+        >
+
+            <span>
+                🌐
+            </span>
+
+            <span>
+                Ба сайт
+            </span>
+
+        </a>
+
+
+        <!-- LOGOUT -->
+
+        <button
+            type="button"
+            class="logout-button"
+            id="logoutButton"
+        >
+
+            <span>
+                🚪
+            </span>
+
+            <span>
+                Баромадан
+            </span>
+
+        </button>
+
+
+    </div>
+
+
+</aside>
+
+
+<!-- =========================================================
+     ADMIN MAIN
+========================================================= -->
+
+<div class="admin-main">
+
+
+    <!-- =====================================================
+         TOPBAR
+    ===================================================== -->
+
+    <header class="admin-topbar">
+
+
+        <!-- LEFT -->
+
+        <div class="topbar-left">
+
+
+            <button
+                type="button"
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Кушодани меню"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+
+            <div class="topbar-title">
+
+                <span>
+                    Murg Kabob
+                </span>
+
+                <h1 id="pageTitle">
+                    Dashboard
+                </h1>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- RIGHT -->
+
+        <div class="topbar-right">
+
+
+            <!-- DATE / TIME -->
+
+            <div class="topbar-datetime">
+
+                <strong id="currentTime">
+                    --:--
+                </strong>
+
+                <span id="currentDate">
+                    —
+                </span>
+
+            </div>
+
+
+            <!-- NOTIFICATION -->
+
+            <button
+                type="button"
+                class="notification-button"
+                id="notificationButton"
+                aria-label="Фармоишҳои нав"
+            >
+
+                <span>
+                    🔔
+                </span>
+
+                <small id="notificationCount">
+                    0
+                </small>
+
+            </button>
+
+
+            <!-- ADMIN PROFILE -->
+
+            <div class="admin-profile">
+
+                <div class="admin-avatar">
+                    A
+                </div>
+
+                <div>
+
+                    <strong>
+                        Admin
+                    </strong>
+
+                    <span>
+                        Administrator
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTENT
+    ===================================================== -->
+
+    <main class="admin-content">
+
+
+        <!-- =================================================
+             DASHBOARD
+        ================================================= -->
+
+        <section
+            class="admin-section active"
+            id="dashboardSection"
+        >
+
+
+            <!-- WELCOME -->
+
+            <div class="welcome-banner">
+
+
+                <div class="welcome-content">
+
+                    <span class="welcome-label">
+                        👋 ХУШ ОМАДЕД
+                    </span>
+
+                    <h2>
+                        Салом, Admin!
+                    </h2>
+
+                    <p>
+                        Фармоишҳо, меню ва фаъолияти
+                        Murg Kabob-ро аз ҳамин ҷо идора кунед.
+                    </p>
+
+                </div>
+
+
+                <div class="welcome-decoration">
+
+                    <span>
+                        🍔
+                    </span>
+
+                    <span>
+                        🍗
+                    </span>
+
+                    <span>
+                        🍟
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- STATS -->
+
+            <div class="stats-grid">
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon">
+                        📦
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Ҳамаи фармоишҳо
+                        </span>
+
+                        <strong id="totalOrders">
+                            0
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon">
+                        🔔
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Фармоишҳои нав
+                        </span>
+
+                        <strong id="newOrders">
+                            0
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon">
+                        👨‍🍳
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Тайёр мешавад
+                        </span>
+
+                        <strong id="cookingOrders">
+                            0
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon">
+                        ✅
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Тайёр
+                        </span>
+
+                        <strong id="readyOrders">
+                            0
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <article class="stat-card revenue-card">
+
+                    <div class="stat-icon">
+                        💰
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Даромад
+                        </span>
+
+                        <strong id="totalRevenue">
+                            0 сомонӣ
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+            <!-- DASHBOARD GRID -->
+
+            <div class="dashboard-grid">
+
+
+                <!-- RECENT ORDERS -->
+
+                <article class="dashboard-panel">
+
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="panel-label">
+                                ФАРМОИШҲО
+                            </span>
+
+                            <h3>
+                                Фармоишҳои охирин
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="panel-link"
+                            id="showAllOrders"
+                        >
+                            Ҳама →
+                        </button>
+
+
+                    </div>
+
+
+                    <div
+                        class="recent-orders"
+                        id="recentOrders"
+                    >
+
+                        <!-- admin.js -->
+
+                    </div>
+
+
+                </article>
+
+
+                <!-- STATUS SUMMARY -->
+
+                <article class="dashboard-panel">
+
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="panel-label">
+                                ҲОЛАТ
+                            </span>
+
+                            <h3>
+                                Ҳолати фармоишҳо
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="status-summary">
+
+
+                        <!-- NEW -->
+
+                        <div class="status-summary-item">
+
+                            <div class="status-summary-top">
+
+                                <div>
+
+                                    <span class="status-dot new"></span>
+
+                                    <span>
+                                        Нав
+                                    </span>
+
+                                </div>
+
+                                <strong id="summaryNew">
+                                    0
+                                </strong>
+
+                            </div>
+
+                            <div class="progress-track">
+
+                                <div
+                                    class="progress-bar new"
+                                    id="newProgress"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- COOKING -->
+
+                        <div class="status-summary-item">
+
+                            <div class="status-summary-top">
+
+                                <div>
+
+                                    <span class="status-dot cooking"></span>
+
+                                    <span>
+                                        Тайёр мешавад
+                                    </span>
+
+                                </div>
+
+                                <strong id="summaryCooking">
+                                    0
+                                </strong>
+
+                            </div>
+
+                            <div class="progress-track">
+
+                                <div
+                                    class="progress-bar cooking"
+                                    id="cookingProgress"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- READY -->
+
+                        <div class="status-summary-item">
+
+                            <div class="status-summary-top">
+
+                                <div>
+
+                                    <span class="status-dot ready"></span>
+
+                                    <span>
+                                        Тайёр
+                                    </span>
+
+                                </div>
+
+                                <strong id="summaryReady">
+                                    0
+                                </strong>
+
+                            </div>
+
+                            <div class="progress-track">
+
+                                <div
+                                    class="progress-bar ready"
+                                    id="readyProgress"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DELIVERED -->
+
+                        <div class="status-summary-item">
+
+                            <div class="status-summary-top">
+
+                                <div>
+
+                                    <span class="status-dot delivered"></span>
+
+                                    <span>
+                                        Расонида шуд
+                                    </span>
+
+                                </div>
+
+                                <strong id="summaryDelivered">
+                                    0
+                                </strong>
+
+                            </div>
+
+                            <div class="progress-track">
+
+                                <div
+                                    class="progress-bar delivered"
+                                    id="deliveredProgress"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             ORDERS
+        ================================================= -->
+
+        <section
+            class="admin-section"
+            id="ordersSection"
+        >
+
+
+            <div class="section-top">
+
+
+                <div>
+
+                    <span class="section-label">
+                        ФАРМОИШҲО
+                    </span>
+
+                    <h2>
+                        Идоракунии фармоишҳо
+                    </h2>
+
+                    <p>
+                        Фармоишҳои муштариёнро бинед
+                        ва ҳолати онҳоро тағйир диҳед.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="primary-admin-button"
+                    id="refreshOrders"
+                >
+                    🔄 Нав кардан
+                </button>
+
+
+            </div>
+
+
+            <!-- TOOLBAR -->
+
+            <div class="orders-toolbar">
+
+
+                <div class="admin-search">
+
+                    <span>
+                        🔎
+                    </span>
+
+                    <input
+                        type="search"
+                        id="orderSearch"
+                        placeholder="ID, ном ё телефон..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <select
+                    id="statusFilter"
+                    aria-label="Филтр аз рӯи ҳолат"
+                >
+
+                    <option value="all">
+                        Ҳамаи ҳолатҳо
+                    </option>
+
+                    <option value="Нав">
+                        Нав
+                    </option>
+
+                    <option value="Тайёр мешавад">
+                        Тайёр мешавад
+                    </option>
+
+                    <option value="Тайёр">
+                        Тайёр
+                    </option>
+
+                    <option value="Расонида шуд">
+                        Расонида шуд
+                    </option>
+
+                </select>
+
+
+            </div>
+
+
+            <!-- ORDERS LIST -->
+
+            <div
+                class="orders-list"
+                id="ordersList"
+            >
+
+                <!-- admin.js -->
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             NEW ORDERS
+        ================================================= -->
+
+        <section
+            class="admin-section"
+            id="newOrdersSection"
+        >
+
+
+            <div class="section-top">
+
+
+                <div>
+
+                    <span class="section-label">
+                        🔔 НАВ
+                    </span>
+
+                    <h2>
+                        Фармоишҳои нав
+                    </h2>
+
+                    <p>
+                        Фармоишҳое, ки ҳоло қабул шудаанд.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <div
+                class="orders-list"
+                id="newOrdersList"
+            >
+
+                <!-- admin.js -->
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             MENU
+        ================================================= -->
+
+        <section
+            class="admin-section"
+            id="menuSection"
+        >
+
+
+            <div class="section-top">
+
+
+                <div>
+
+                    <span class="section-label">
+                        МЕНЮ
+                    </span>
+
+                    <h2>
+                        Идоракунии меню
+                    </h2>
+
+                    <p>
+                        Маҳсулотро илова, таҳрир,
+                        фаъол ё хомӯш кунед.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="primary-admin-button"
+                    id="addProductButton"
+                >
+                    + Маҳсулоти нав
+                </button>
+
+
+            </div>
+
+
+            <!-- PRODUCT TOOLBAR -->
+
+            <div class="orders-toolbar">
+
+
+                <div class="admin-search">
+
+                    <span>
+                        🔎
+                    </span>
+
+                    <input
+                        type="search"
+                        id="productSearch"
+                        placeholder="Ҷустуҷӯи маҳсулот..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <select
+                    id="productCategoryFilter"
+                    aria-label="Категория"
+                >
+
+                    <option value="all">
+                        Ҳамаи категорияҳо
+                    </option>
+
+                    <option value="burger">
+                        Бургер
+                    </option>
+
+                    <option value="chicken">
+                        Мурғ
+                    </option>
+
+                    <option value="combo">
+                        Комбо
+                    </option>
+
+                    <option value="drink">
+                        Нӯшокӣ
+                    </option>
+
+                </select>
+
+
+            </div>
+
+
+            <!-- PRODUCTS -->
+
+            <div
+                class="admin-products-grid"
+                id="adminProductsGrid"
+            >
+
+                <!-- admin.js -->
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             REPORTS
+        ================================================= -->
+
+        <section
+            class="admin-section"
+            id="reportsSection"
+        >
+
+
+            <div class="section-top">
+
+
+                <div>
+
+                    <span class="section-label">
+                        ҲИСОБОТ
+                    </span>
+
+                    <h2>
+                        Ҳисоботи фурӯш
+                    </h2>
+
+                    <p>
+                        Фармоишҳо, пардохтҳо ва
+                        даромадро бинед.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="primary-admin-button"
+                    id="printReportButton"
+                >
+                    🖨 Чоп кардан
+                </button>
+
+
+            </div>
+
+
+            <!-- REPORT TOOLBAR -->
+
+            <div class="report-toolbar">
+
+
+                <div class="report-period-buttons">
+
+
+                    <button
+                        type="button"
+                        class="report-period-button active"
+                        data-period="today"
+                    >
+                        Имрӯз
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="report-period-button"
+                        data-period="week"
+                    >
+                        Ҳафта
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="report-period-button"
+                        data-period="month"
+                    >
+                        Моҳ
+                    </button>
+
+
+                </div>
+
+
+                <div class="report-period-text">
+
+                    Давра:
+
+                    <strong id="reportPeriodText">
+                        Имрӯз
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- REPORT STATS -->
+
+            <div class="report-stats-grid">
+
+
+                <article class="report-stat-card">
+
+                    <span>
+                        📦
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Фармоишҳо
+                        </small>
+
+                        <strong id="reportTotalOrders">
+                            0
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <article class="report-stat-card">
+
+                    <span>
+                        ✅
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Расонида шуд
+                        </small>
+
+                        <strong id="reportDeliveredOrders">
+                            0
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <article class="report-stat-card">
+
+                    <span>
+                        💵
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Нақдӣ
+                        </small>
+
+                        <strong id="reportCashRevenue">
+                            0 сомонӣ
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <article class="report-stat-card">
+
+                    <span>
+                        💳
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Корт
+                        </small>
+
+                        <strong id="reportCardRevenue">
+                            0 сомонӣ
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+                <article class="report-stat-card report-total-card">
+
+                    <span>
+                        💰
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Даромади умумӣ
+                        </small>
+
+                        <strong id="reportTotalRevenue">
+                            0 сомонӣ
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+            <!-- REPORT SUMMARY -->
+
+            <div class="report-summary-grid">
+
+
+                <!-- PAYMENT -->
+
+                <article class="report-panel">
+
+
+                    <div class="report-panel-header">
+
+                        <div>
+
+                            <span>
+                                ПАРДОХТ
+                            </span>
+
+                            <h3>
+                                Тарзи пардохт
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="report-payment-summary">
+
+
+                        <div class="report-payment-item">
+
+                            <div>
+
+                                <span class="payment-summary-icon">
+                                    💵
+                                </span>
+
+                                <span>
+                                    Нақдӣ
+                                </span>
+
+                            </div>
+
+                            <strong id="reportCashAmount">
+                                0 сомонӣ
+                            </strong>
+
+                        </div>
+
+
+                        <div class="report-payment-item">
+
+                            <div>
+
+                                <span class="payment-summary-icon">
+                                    💳
+                                </span>
+
+                                <span>
+                                    Корт
+                                </span>
+
+                            </div>
+
+                            <strong id="reportCardAmount">
+                                0 сомонӣ
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+                <!-- STATUS -->
+
+                <article class="report-panel">
+
+
+                    <div class="report-panel-header">
+
+                        <div>
+
+                            <span>
+                                ҲОЛАТ
+                            </span>
+
+                            <h3>
+                                Фармоишҳо
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="report-status-list">
+
+
+                        <div class="report-status-item">
+
+                            <div>
+
+                                <span class="status-dot new"></span>
+
+                                Нав
+
+                            </div>
+
+                            <strong id="reportNewCount">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="report-status-item">
+
+                            <div>
+
+                                <span class="status-dot cooking"></span>
+
+                                Тайёр мешавад
+
+                            </div>
+
+                            <strong id="reportCookingCount">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="report-status-item">
+
+                            <div>
+
+                                <span class="status-dot ready"></span>
+
+                                Тайёр
+
+                            </div>
+
+                            <strong id="reportReadyCount">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="report-status-item">
+
+                            <div>
+
+                                <span class="status-dot delivered"></span>
+
+                                Расонида шуд
+
+                            </div>
+
+                            <strong id="reportDeliveredCount">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+            </div>
+
+
+            <!-- REPORT TABLE -->
+
+            <article class="report-table-panel">
+
+
+                <div class="report-table-header">
+
+                    <div>
+
+                        <span>
+                            ФАРМОИШҲО
+                        </span>
+
+                        <h3>
+                            Тафсилоти ҳисобот
+                        </h3>
+
+                        <p id="reportOrdersDescription">
+                            Рӯйхати фармоишҳои давраи интихобшуда
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="report-table-wrapper">
+
+                    <table class="report-table">
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    ID
+                                </th>
+
+                                <th>
+                                    Муштарӣ
+                                </th>
+
+                                <th>
+                                    Сана
+                                </th>
+
+                                <th>
+                                    Ҳолат
+                                </th>
+
+                                <th>
+                                    Пардохт
+                                </th>
+
+                                <th>
+                                    Ҷамъ
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="reportTableBody">
+
+                            <!-- admin.js -->
+
+                        </tbody>
+
+
+                    </table>
+
+
+                    <div
+                        class="report-empty"
+                        id="reportEmpty"
+                    >
+
+                        <div>
+                            📊
+                        </div>
+
+                        <h3>
+                            Маълумот нест
+                        </h3>
+
+                        <p>
+                            Барои ин давра фармоиш ёфт нашуд.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+<!-- =========================================================
+     ORDER DETAIL MODAL
+========================================================= -->
+
+<div
+    class="modal"
+    id="orderModal"
+>
+
+
+    <div class="modal-card order-modal-card">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="modal-label">
+                    ФАРМОИШ
+                </span>
+
+                <h2 id="modalOrderId">
+                    —
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeOrderModal"
+                aria-label="Пӯшидан"
+            >
+                ×
+            </button>
+
+
+        </div>
+
+
+        <div
+            class="modal-body"
+            id="orderModalBody"
+        >
+
+            <!-- admin.js -->
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================================================
+     PRODUCT MODAL
+========================================================= -->
+
+<div
+    class="modal"
+    id="productModal"
+>
+
+
+    <div class="modal-card product-modal-card">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="modal-label">
+                    МЕНЮ
+                </span>
+
+                <h2 id="productModalTitle">
+                    Маҳсулоти нав
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeProductModal"
+                aria-label="Пӯшидан"
+            >
+                ×
+            </button>
+
+
+        </div>
+
+
+        <div class="modal-body">
+
+
+            <form
+                class="product-form"
+                id="productForm"
+            >
+
+
+                <input
+                    type="hidden"
+                    id="productId"
+                >
+
+
+                <div class="product-form-grid">
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label for="productName">
+                            Номи маҳсулот *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="productName"
+                            placeholder="Масалан: Чизбургер"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PRICE -->
+
+                    <div class="form-group">
+
+                        <label for="productPrice">
+                            Нарх *
+                        </label>
+
+                        <input
+                            type="number"
+                            id="productPrice"
+                            min="0"
+                            step="0.01"
+                            placeholder="40"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="form-group">
+
+                        <label for="productCategory">
+                            Категория
+                        </label>
+
+                        <select id="productCategory">
+
+                            <option value="burger">
+                                Бургер
+                            </option>
+
+                            <option value="chicken">
+                                Мурғ
+                            </option>
+
+                            <option value="combo">
+                                Комбо
+                            </option>
+
+                            <option value="drink">
+                                Нӯшокӣ
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- IMAGE -->
+
+                    <div class="form-group">
+
+                        <label for="productImage">
+                            Расм
+                        </label>
+
+                        <input
+                            type="text"
+                            id="productImage"
+                            placeholder="images/burger-1.jpg"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="form-group">
+
+                    <label for="productDescription">
+                        Тавсиф
+                    </label>
+
+                    <textarea
+                        id="productDescription"
+                        rows="4"
+                        placeholder="Тавсифи маҳсулот..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- ACTIVE -->
+
+                <label class="product-active-option">
+
+                    <input
+                        type="checkbox"
+                        id="productActive"
+                        checked
+                    >
+
+                    <span class="product-switch"></span>
+
+                    <div>
+
+                        <strong>
+                            Дар меню фаъол бошад
+                        </strong>
+
+                        <small>
+                            Агар хомӯш бошад, дар сайти муштарӣ
+                            нишон дода намешавад.
+                        </small>
+
+                    </div>
+
+                </label>
+
+
+                <!-- ACTIONS -->
+
+                <div class="modal-actions">
+
+
+                    <button
+                        type="button"
+                        class="secondary-admin-button"
+                        id="cancelProductButton"
+                    >
+                        Бекор кардан
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-admin-button"
+                    >
+                        💾 Нигоҳ доштан
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================================================
+     DELETE CONFIRMATION MODAL
+========================================================= -->
+
+<div
+    class="modal"
+    id="deleteModal"
+>
+
+
+    <div class="modal-card delete-modal-card">
+
+
+        <div class="delete-modal-icon">
+            🗑️
+        </div>
+
+
+        <h2 id="deleteTitle">
+            Нест карда шавад?
+        </h2>
+
+
+        <p id="deleteText">
+            Ин амалро баргардонидан мумкин нест.
+        </p>
+
+
+        <div class="modal-actions">
+
+
+            <button
+                type="button"
+                class="secondary-admin-button"
+                id="cancelDelete"
+            >
+                Бекор кардан
+            </button>
+
+
+            <button
+                type="button"
+                class="danger-admin-button"
+                id="confirmDelete"
+            >
+                Нест кардан
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================================================
+     TOAST
+========================================================= -->
+
+<div
+    class="admin-toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+>
+
+
+    <div
+        class="admin-toast-icon"
+        id="toastIcon"
+    >
+        ✅
+    </div>
+
+
+    <div>
+
+        <strong id="toastTitle">
+            Тайёр
+        </strong>
+
+        <p id="toastText">
+            Амалиёт иҷро шуд.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script src="admin.js"></script>
+
+
+</body>
+
+</html>
