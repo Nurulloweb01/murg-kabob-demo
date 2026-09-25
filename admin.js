@@ -40,7 +40,7 @@ const DEFAULT_PRODUCTS = [
         name: "Бургери классикӣ",
         price: 35,
         category: "burger",
-        image: "images/burger-1.svg",
+        image: "images/burger-1.jpg",
         description: "Гӯшт, салат, помидор, панир ва соуси махсус.",
         active: true
     },
@@ -50,7 +50,7 @@ const DEFAULT_PRODUCTS = [
         name: "Чизбургер",
         price: 40,
         category: "burger",
-        image: "images/burger-2.svg",
+        image: "images/burger-2.jpg",
         description: "Гӯшт, панир, сабзавот ва соуси махсус.",
         active: true
     },
@@ -60,7 +60,7 @@ const DEFAULT_PRODUCTS = [
         name: "Мурғи бирён",
         price: 55,
         category: "chicken",
-        image: "images/chicken-1.svg",
+        image: "images/chicken-1.jpg",
         description: "Мурғи болаззат бо қабати қирмиз ва хуштаъм.",
         active: true
     },
@@ -70,7 +70,7 @@ const DEFAULT_PRODUCTS = [
         name: "Мурғ бо картошка",
         price: 65,
         category: "chicken",
-        image: "images/chicken-2.svg",
+        image: "images/chicken-2.jpg",
         description: "Мурғи бирён бо картошка ва соуси махсус.",
         active: true
     },
@@ -80,7 +80,7 @@ const DEFAULT_PRODUCTS = [
         name: "Комбо барои 2 нафар",
         price: 99,
         category: "combo",
-        image: "images/combo.svg",
+        image: "images/combo.jpg",
         description: "Комбои болаззат барои ду нафар.",
         active: true
     },
@@ -90,7 +90,7 @@ const DEFAULT_PRODUCTS = [
         name: "Нӯшокӣ",
         price: 10,
         category: "drink",
-        image: "images/drink-1.svg",
+        image: "images/drink-1.jpg",
         description: "Нӯшокии хунук барои ҳамроҳии хӯрок.",
         active: true
     }
@@ -656,7 +656,7 @@ function normalizeProduct(
         image:
             String(
                 product?.image ||
-                "images/hero.png"
+                "images/hero.jpg"
             ),
 
         description:
@@ -734,6 +734,44 @@ function loadProducts() {
             saved
         );
 
+    } else {
+
+        let changed = false;
+
+        saved = saved.map(product => {
+
+            const nextImage =
+                productJpgPath(
+                    product?.image
+                );
+
+            if (
+                nextImage &&
+                nextImage !== product?.image
+            ) {
+
+                changed = true;
+
+                return {
+                    ...product,
+                    image: nextImage
+                };
+
+            }
+
+            return product;
+
+        });
+
+        if (changed) {
+
+            writeStorage(
+                PRODUCTS_KEY,
+                saved
+            );
+
+        }
+
     }
 
     products =
@@ -786,14 +824,61 @@ function categoryName(category) {
    SAFE IMAGE
 ========================================================= */
 
+const JPG_BY_SVG_FILE = {
+
+    "burger-1.svg": "images/burger-1.jpg",
+
+    "burger-2.svg": "images/burger-2.jpg",
+
+    "chicken-1.svg": "images/chicken-1.jpg",
+
+    "chicken-2.svg": "images/chicken-2.jpg",
+
+    "combo.svg": "images/combo.jpg",
+
+    "drink-1.svg": "images/drink-1.jpg"
+
+};
+
+
+function productJpgPath(image) {
+
+    const value =
+        String(image || "")
+            .trim()
+            .replace(/^\.\//, "");
+
+    const file =
+        value
+            .split("/")
+            .pop()
+            .split("?")[0]
+            .toLowerCase();
+
+    if (JPG_BY_SVG_FILE[file]) {
+
+        return JPG_BY_SVG_FILE[file];
+
+    }
+
+    if (/\.svg(\?.*)?$/i.test(value)) {
+
+        return "images/hero.jpg";
+
+    }
+
+    return value;
+
+}
+
+
 function safeImageSrc(value) {
 
     const image =
-        String(value || "").trim();
+        productJpgPath(value);
 
     if (
         image.startsWith("images/") ||
-        image.startsWith("./images/") ||
         image.startsWith("https://") ||
         image.startsWith("http://")
     ) {
@@ -802,7 +887,7 @@ function safeImageSrc(value) {
 
     }
 
-    return "images/hero.png";
+    return "images/hero.jpg";
 
 }
 
@@ -2242,7 +2327,7 @@ function renderProducts() {
                                 alt="${escapeHTML(
                                     product.name
                                 )}"
-                                onerror="this.src='images/hero.png'"
+                                onerror="this.onerror=null;this.src='images/hero.jpg'"
                             >
 
                             <span
@@ -2521,7 +2606,7 @@ function handleProductSubmit(
         $("#productImage")
             ?.value
             .trim() ||
-        "images/hero.png";
+        "images/hero.jpg";
 
     const description =
         $("#productDescription")
